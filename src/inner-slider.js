@@ -80,6 +80,13 @@ export var InnerSlider = createReactClass({
     }
   },
   componentWillReceiveProps: function(nextProps) {
+
+    if (this.props.initialSlide !== nextProps.initialSlide) {
+      this.setState({
+        currentSlide: nextProps.initialSlide
+      })
+    }
+
     if (this.props.slickGoTo != nextProps.slickGoTo) {
       if (process.env.NODE_ENV !== 'production') {
         console.warn('react-slick deprecation warning: slickGoTo prop is deprecated and it will be removed in next release. Use slickGoTo method instead')
