@@ -57,7 +57,11 @@ export default class Slider extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.state.breakpoint !== nextState.breakpoint || this.props.slickGoTo !== nextProps.slickGoTo
+    return (
+      this.props.initialSlide !== nextProps.initialSlide ||
+      this.state.breakpoint !== nextState.breakpoint || 
+      this.props.slickGoTo !== nextProps.slickGoTo
+    )
   }
 
   slickPrev() {
